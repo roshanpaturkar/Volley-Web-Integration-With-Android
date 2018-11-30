@@ -23,11 +23,11 @@ import research.roshanpaturkar.com.vollyintegration.api.Api;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    EditText FULLNAME;
-    EditText EMAIL;
-    EditText USERNAME;
-    EditText PASSWORD;
-    Button REGISTER;
+    EditText fullName;
+    EditText email ;
+    EditText userName;
+    EditText password;
+    Button register;
     RequestQueue queue;
 
     @Override
@@ -37,21 +37,21 @@ public class RegistrationActivity extends AppCompatActivity {
 
         queue = Volley.newRequestQueue(this);
 
-        FULLNAME=(EditText)findViewById(R.id.xmyfname);
-        EMAIL=(EditText)findViewById(R.id.xmyemail);
-        USERNAME=(EditText)findViewById(R.id.xmyusername);
-        PASSWORD=(EditText)findViewById(R.id.xmypassword);
-        REGISTER=(Button)findViewById(R.id.regbtn);
+        fullName = (EditText)findViewById(R.id.xmyfname);
+        email = (EditText)findViewById(R.id.xmyemail);
+        userName = (EditText)findViewById(R.id.xmyusername);
+        password = (EditText)findViewById(R.id.xmypassword);
+        register = (Button)findViewById(R.id.regbtn);
 
-        REGISTER.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
                 Toast.makeText(RegistrationActivity.this, "Registering You.....", Toast.LENGTH_SHORT).show();
-                final String MYFULLNAME=FULLNAME.getText().toString().trim();
-                final String MYEMAIL=EMAIL.getText().toString().trim();
-                final String MYUSERNAME=USERNAME.getText().toString().trim();
-                final String MYPASSWORD=PASSWORD.getText().toString().trim();
+                final String myFullName = fullName.getText().toString().trim();
+                final String myEmail = email.getText().toString().trim();
+                final String myUserName = userName.getText().toString().trim();
+                final String myPassword = password.getText().toString().trim();
                 StringRequest request = new StringRequest(Request.Method.POST, Api.REGISTRATION, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -76,10 +76,10 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     protected Map<String, String> getParams() {
                         Map<String, String> data = new HashMap<String, String>();
-                        data.put("fullname", MYFULLNAME);
-                        data.put("email", MYEMAIL);
-                        data.put("name", MYUSERNAME);
-                        data.put("pass", MYPASSWORD);
+                        data.put("fullname", myFullName);
+                        data.put("email", myEmail);
+                        data.put("name", myUserName);
+                        data.put("pass", myPassword);
 
                         return data;
                     }
