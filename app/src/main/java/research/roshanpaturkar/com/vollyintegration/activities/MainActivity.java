@@ -63,7 +63,10 @@ public class MainActivity extends AppCompatActivity {
                             Log.d("Response >>> ", response);
 
                             if (response.equals("true")){
+                                emailEditText.setText("");
+                                passwordEditText.setText("");
                                 startActivity(new Intent(MainActivity.this, Dashboard.class));
+                                finish();
                             } else {
                                 emailEditText.setError("Invalid Username or Password");
                                 passwordEditText.setError("Invalid Username or Password");
